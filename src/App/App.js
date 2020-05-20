@@ -46,7 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <MyNavbar authed={authed} />
-        <h1>INSIDE APP COMPONENT</h1>
+        <h1>React Pinterest</h1>
         {loadComponent()}
       </div>
     );

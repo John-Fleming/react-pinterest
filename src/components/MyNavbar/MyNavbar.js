@@ -20,7 +20,9 @@ class MyNavbar extends React.Component {
     return (
       <div className="MyNavbar">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className="navbar-brand text-danger" href="#">React Pinterest</a>
+          {/* eslint-disable-next-line max-len */}
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

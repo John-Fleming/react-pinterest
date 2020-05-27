@@ -6,6 +6,7 @@ import boardsData from '../../helpers/data/boardsData';
 import pinsData from '../../helpers/data/pinsData';
 
 import Pins from '../Pins/Pins';
+import PinForm from '../PinForm/PinForm';
 
 class SingleBoard extends React.Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class SingleBoard extends React.Component {
   state = {
     board: {},
     pins: [],
+    formOpen: false,
   }
 
   getInfo = () => {
@@ -42,7 +44,7 @@ class SingleBoard extends React.Component {
 
   render() {
     const { setSingleBoard } = this.props;
-    const { board, pins } = this.state;
+    const { board, pins, formOpen } = this.state;
 
     const makePins = pins.map((p) => <Pins key={p.id} pin={p} removePin={this.removePin}/>);
 
@@ -51,6 +53,8 @@ class SingleBoard extends React.Component {
         <button className="btn btn-danger" onClick={() => { setSingleBoard(''); }}>X</button>
         <h2>{board.name} Board</h2>
         <h2>{board.description}</h2>
+        <button className="btn btn-outline-primary mb-3" onClick={() => this.setState({ formOpen: true })}><i className="fas fa-plus"></i></button>
+        { formOpen ? <PinForm /> : '' }
         <div className="d-flex flex-wrap">
           {makePins}
         </div>

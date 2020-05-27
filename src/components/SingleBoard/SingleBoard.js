@@ -42,8 +42,18 @@ class SingleBoard extends React.Component {
       .catch((err) => console.error('could not delete pin', err));
   }
 
+  saveNewPin = (newPin) => {
+    console.log('newPin :>> ', newPin);
+    pinsData.savePin(newPin)
+      .then(() => {
+        this.getInfo();
+        this.setState({ formOpen: false });
+      })
+      .catch((err) => console.error('could not save pin: ', err));
+  }
+
   render() {
-    const { setSingleBoard } = this.props;
+    const { setSingleBoard, boardId } = this.props;
     const { board, pins, formOpen } = this.state;
 
     const makePins = pins.map((p) => <Pins key={p.id} pin={p} removePin={this.removePin}/>);
@@ -54,7 +64,7 @@ class SingleBoard extends React.Component {
         <h2>{board.name} Board</h2>
         <h2>{board.description}</h2>
         <button className="btn btn-outline-primary mb-3" onClick={() => this.setState({ formOpen: true })}><i className="fas fa-plus"></i></button>
-        { formOpen ? <PinForm /> : '' }
+        { formOpen ? <PinForm boardId={boardId} saveNewPin={this.saveNewPin}/> : '' }
         <div className="d-flex flex-wrap">
           {makePins}
         </div>

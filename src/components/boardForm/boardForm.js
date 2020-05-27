@@ -48,7 +48,7 @@ class BoardForm extends React.Component {
             <label htmlFor="board-description">Description</label>
             <input type="text" className="form-control" id="board-description" placeholder="Board Description" value={boardDescription} onChange={this.descriptionChange}/>
           </div>
-          <button className="btn btn-dark" onClick={this.saveBoard}>Save Board</button>
+          <button className="btn btn-primary" onClick={this.saveBoard}>Save Board</button>
         </form>
       </div>
     );

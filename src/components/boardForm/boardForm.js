@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import authData from '../../helpers/data/authData';
 
-class boardForm extends React.Component {
+class BoardForm extends React.Component {
   static propTypes = {
     saveNewBoard: PropTypes.func.isRequired,
   }
@@ -38,7 +38,7 @@ class boardForm extends React.Component {
     const { boardName, boardDescription } = this.state;
 
     return (
-      <div className="boardForm mb-4">
+      <div className="BoardForm mb-4">
         <form className="col-6 offset-3">
           <div className="form-group">
             <label htmlFor="board-name">Name</label>
@@ -48,11 +48,11 @@ class boardForm extends React.Component {
             <label htmlFor="board-description">Description</label>
             <input type="text" className="form-control" id="board-description" placeholder="Board Description" value={boardDescription} onChange={this.descriptionChange}/>
           </div>
-          <button className="btn btn-dark" onClick={this.saveBoard}>Save Board</button>
+          <button className="btn btn-primary" onClick={this.saveBoard}>Save Board</button>
         </form>
       </div>
     );
   }
 }
 
-export default boardForm;
+export default BoardForm;

@@ -33,7 +33,6 @@ class PinForm extends React.Component {
       title: pinTitle,
       uid: authData.getUid(),
     };
-    console.log('newPin :>> ', newPin);
     saveNewPin(newPin);
   }
 

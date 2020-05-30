@@ -43,7 +43,6 @@ class SingleBoard extends React.Component {
   }
 
   saveNewPin = (newPin) => {
-    console.log('newPin :>> ', newPin);
     pinsData.savePin(newPin)
       .then(() => {
         this.getInfo();
